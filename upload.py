@@ -1,8 +1,9 @@
 from google.cloud import storage
 
-client = storage.Client()
+def upload_blob(img_name):
+    client = storage.Client()
 
-bucket = client.get_bucket('noteify')
+    bucket = client.get_bucket('noteify')
 
-imageBlob = bucket.blob('test.jpg')
-imageBlob.upload_from_filename(filename='imgs/test.jpg')
+    imageBlob = bucket.blob(img_name)
+    imageBlob.upload_from_filename(filename='./imgs/'+img_name)
